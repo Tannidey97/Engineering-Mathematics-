@@ -1,38 +1,54 @@
-# 💡Fourier Transform
-A signal is usually a mixture of many waves with different frequencies, and the Fourier transform separates the signal into its frequency components so we can see which frequencies are present and how strong they are.
+‎Fourier Series
+A Fourier series is a way to represent a repeating (periodic) function as
+a sum of simple sine and cosine waves.
+‎[only add the periodic waves]
+‎
+‎🌊Periodic waves - repeats its phase after a certain time or period.
+‎Examples : sine, cosine, AC electricity.
 
-# Fourier Transform
+‎## The General Equation of Fourier series :
+‎
+‎For a function $F(x)$ defined over the interval $[-L, L]$, the Fourier series is:
+‎
+‎$$F(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty} \left[ a_n \cos\left(\frac{n\pi x}{L}\right) + b_n \sin\left(\frac{n\pi x}{L}\right) \right]$$
 
-## Finite Fourier Sine Transform
+# General Fourier Series
 
-The finite Fourier sine transform of $F(x)$, where $0 < x < L$, is defined as:
+The Fourier series allows us to represent a periodic function $F(x)$ (with a period of $2L$) as an infinite sum of sines and cosines.
 
-$$f_s(n) = \int_0^L F(x) \sin\left(\frac{n\pi x}{L}\right) dx$$
+## The General Equation
 
-where $n$ is an integer.
+For a function $F(x)$ defined over the interval $[-L, L]$, the Fourier series is:
 
----
-
-## Inverse Finite Fourier Sine Transform
-
-The function $F(x)$ is called the inverse finite Fourier sine transform of $f_s(n)$ and is given by:
-
-$$F(x) = \frac{2}{L}\sum_{n=1}^{\infty} f_s(n) \sin\left(\frac{n\pi x}{L}\right)$$
-
----
-
-## Finite Fourier Cosine Transform
-
-The finite Fourier cosine transform of $F(x)$, where $0 < x < L$, is defined as:
-
-$$f_c(n) = \int_0^L F(x) \cos\left(\frac{n\pi x}{L}\right) dx$$
-
-where $n$ is an integer.
+$$F(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty} \left[ a_n \cos\left(\frac{n\pi x}{L}\right) + b_n \sin\left(\frac{n\pi x}{L}\right) \right]$$
 
 ---
 
-## Inverse Finite Fourier Cosine Transform
+## The Fourier Coefficients
 
-The function $F(x)$ is called the inverse finite Fourier cosine transform of $f_c(n)$ and is given by:
+To solve the equation above, the constants $a_0$, $a_n$, and $b_n$ are calculated using these integrals:
 
-$$F(x) = \frac{1}{L}f_c(0) + \frac{2}{L}\sum_{n=1}^{\infty} f_c(n) \cos\left(\frac{n\pi x}{L}\right)$$
+* **DC Component ($a_0$):**
+  $$a_0 = \frac{1}{L} \int_{-L}^{L} F(x) dx$$
+
+* **Cosine Coefficients ($a_n$):**
+  $$a_n = \frac{1}{L} \int_{-L}^{L} F(x) \cos\left(\frac{n\pi x}{L}\right) dx$$
+
+* **Sine Coefficients ($b_n$):**
+  $$b_n = \frac{1}{L} \int_{-L}^{L} F(x) \sin\left(\frac{n\pi x}{L}\right) dx$$
+
+---
+
+## Special Case: Period of $2\pi$
+
+If the function has a period of $2\pi$ (where $L = \pi$) over the interval $[-\pi, \pi]$, the equations simplify to:
+
+$$F(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty} \left[ a_n \cos(nx) + b_n \sin(nx) \right]$$
+
+### Coefficients for $2\pi$:
+* $$a_0 = \frac{1}{\pi} \int_{-\pi}^{\pi} F(x) dx$$
+* $$a_n = \frac{1}{\pi} \int_{-\pi}^{\pi} F(x) \cos(nx) dx$$
+* $$b_n = \frac{1}{\pi} \int_{-\pi}^{\pi} F(x) \sin(nx) dx$$
+
+[We use Fourier series when we need to add different kind of waves which are periodic like repeats after a certain time or period to create a complex periodic signal.
+You can say A Fourier series is a mathematical method of combining many periodic sine and cosine waves into one periodic function or signal.]
